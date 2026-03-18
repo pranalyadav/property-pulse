@@ -1,8 +1,12 @@
+"use client"
 import React from 'react'
 
 const PropertyPage = () => {
+
     return (
-        <div>PropertyPage</div>
+        <div>
+            PropertyPage
+        </div>
     )
 }
 
