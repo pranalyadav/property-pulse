@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+@theme {
+  /* Replaces fontFamily.sans */
+  --font-family-sans: "Poppins", sans-serif;
+
+  /* Replaces gridTemplateColumns['70/30'] */
+  --grid-template-columns-70\/30: 70% 28%;
+}
