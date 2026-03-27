@@ -162,6 +162,8 @@ const Navbar = () => {
                       className="h-8 w-8 rounded-full"
                       src={profileImage || profileDefault}
                       alt=""
+                      width={40}
+                      height={40}
                     />
                   </button>
                 </div>
