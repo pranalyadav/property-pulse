@@ -16,6 +16,7 @@ const Navbar = () => {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
   const [providers, setProviders] = useState(false)
   const pathname = usePathname()
+  const profileImage = session?.user?.image;
 
   useEffect(() => {
     const setAuthProviders = async () => {
@@ -159,7 +160,7 @@ const Navbar = () => {
                     <span className="sr-only">Open user menu</span>
                     <Image
                       className="h-8 w-8 rounded-full"
-                      src={profileDefault}
+                      src={profileImage || profileDefault}
                       alt=""
                     />
                   </button>
