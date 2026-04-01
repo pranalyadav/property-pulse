@@ -99,7 +99,7 @@ const PropertyAddForm = () => {
 
 
   return mounted &&
-    <form>
+    <form action="/api/properties" method='POST' encType='multipart/form-data'>
       <h2 className="text-3xl text-center font-semibold mb-6">
         Add Property
       </h2>
@@ -553,7 +553,7 @@ const PropertyAddForm = () => {
           Add Property
         </button>
       </div>
-    </form>
+    </form >
 
 }
 
