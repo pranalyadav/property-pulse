@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { FaArrowLeft } from 'react-icons/fa'
 import PropertyDetails from '@/components/PropertyDetails'
 import Spinner from '@/components/Spinner'
+import PropertyImages from '@/components/PropertyImages'
 
 const PropertyPage = () => {
   const { id } = useParams();
@@ -156,7 +157,7 @@ const PropertyPage = () => {
           </section>
 
           {/* <!-- Images --> */}
-          <section className="bg-blue-50 p-4">
+          {/* <section className="bg-blue-50 p-4">
             <div className="container mx-auto">
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2">
@@ -189,7 +190,8 @@ const PropertyPage = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </section> */}
+          <PropertyImages images={property.images} />
 
         </>
       )}
