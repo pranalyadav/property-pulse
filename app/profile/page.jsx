@@ -42,8 +42,24 @@ const ProfilePage = () => {
     }
   }, [session])
 
-  const handleDeleteProperty = () => {
+  const handleDeleteProperty = async (propertyId) => {
+    const confirmed = window.confirm('Are you sure you want to delete this property?')
+    if (!confirmed) return;
 
+    try {
+      const res = await fetch(`/api/properties/${propertyId}`, { method: 'DELETE' })
+      if (res.status === 200) {
+        //remove the proprety  from state
+        const updatedProperties = properties.filter((property) => property._id !== propertyId)
+        setProperties(updatedProperties)
+        alert('Property deleted')
+      } else {
+        alert('Fialed to delete property')
+      }
+    } catch (error) {
+      console.log(error)
+      alert('Fialed to delete property')
+    }
   }
 
   return (
@@ -103,7 +119,7 @@ const ProfilePage = () => {
                         Edit
                       </Link>
                       <button
-                        onClick={() => handleDeleteProperty(property_.id)}
+                        onClick={() => handleDeleteProperty(property._id)}
                         className="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-600"
                         type="button"
                       >
