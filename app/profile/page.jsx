@@ -3,10 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
-import { useState, useEffect } from 'react'
 import Spinner from '@/components/Spinner'
 import profileDefault from '@/assets/images/profile.png'
+import { useSession } from 'next-auth/react'
+import { useState, useEffect } from 'react'
+import { toast } from 'react-toastify'
+
 
 const ProfilePage = () => {
 
@@ -47,18 +49,20 @@ const ProfilePage = () => {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`/api/properties/${propertyId}`, { method: 'DELETE' })
+      const res = await fetch(`/api/properties/${propertyId}`, {
+        method: 'DELETE',
+      });
       if (res.status === 200) {
         //remove the proprety  from state
         const updatedProperties = properties.filter((property) => property._id !== propertyId)
         setProperties(updatedProperties)
-        alert('Property deleted')
+        toast.success('Property deleted')
       } else {
-        alert('Fialed to delete property')
+        toast.error('Failed to delete property')
       }
     } catch (error) {
       console.log(error)
-      alert('Fialed to delete property')
+      toast.error('Failed to delete property')
     }
   }
 

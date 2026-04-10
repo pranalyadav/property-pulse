@@ -29,7 +29,7 @@ export const DELETE = async (request, { params }) => {
         // const { id } = await params;
 
         const resolvedParams = await params;  // unwrap the promise
-        const propertyId = resolvedParams.userId;
+        const propertyId = resolvedParams.id;
 
         const sessionUser = await getSessionUser();
 
